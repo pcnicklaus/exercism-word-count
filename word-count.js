@@ -1,12 +1,13 @@
-function words (string) {
+function words (str) {
   var expectedCounts = {};
   var count = '';
-  var a = string.split(' ');
-  for (var i = 0; i < a.length; i++) {
-    if (a[0] === a[i]) {
-      count ++;
-      expectedCounts[a[i]] = count;
-      console.log(expectedCounts);
+  var array = str.split(/\s*\s+/)
+
+  for (var i = 0; i < array.length; i++) {
+    if (!expectedCounts[array[i]]) {
+      expectedCounts[array[i]] = 1;
+    } else {
+      expectedCounts[array[i]]++;
     }
   }
   return expectedCounts;
